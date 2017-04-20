@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Is it a duck?</title>
+</head>
+<body>
+<script src="eider-rpc.min.js"></script>
+<script type="text/javascript">
+    let how = 'like a duck';
+    let obj = {looks: how, swims: how, quacks: how};
+    Eider.using(Eider.connect('ws://localhost:12345'), conn =>
+        Eider.using(conn.createSession(), duckTester =>
+            duckTester.is_it_a_duck(obj)
+        )
+    ).then(isDuck => {
+        alert("It's probably " + (isDuck ? '' : 'NOT ') + 'a duck.');
+    });
+</script>
+</body>
+</html>
