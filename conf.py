@@ -130,7 +130,12 @@ html_theme = 'alabaster'
 html_theme_options = {
     'description': "An object-oriented, asynchronous, late-binding, web-first, polyglot RPC protocol.",
     'logo': 'king_eider.jpg',
-    'logo_name': True
+    'logo_name': True,
+    'github_user': 'eider-rpc',
+    'github_repo': 'eider-py',
+    'github_button': False,
+    'github_banner': True,
+    'travis_button': True
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
