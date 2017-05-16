@@ -29,7 +29,7 @@ using `msgpack-python <https://github.com/msgpack/msgpack-python>`_, if availabl
   
     pip install eider
 
-You can also check out the `source code on GitHub <https://github.com/eider-rpc/eider-py>`_.
+You can also check out the `source code on GitHub <https://github.com/eider-rpc/eider-py>`__.
 
 JavaScript
 ^^^^^^^^^^
@@ -47,7 +47,7 @@ using `ws <https://www.npmjs.com/package/ws>`_ and MessagePack using `msgpack-li
 
 For the browser: `eider-rpc.min.js <eider-rpc.min.js>`_.
 
-You can also check out the `source code on GitHub <https://github.com/eider-rpc/eider-js>`_.
+You can also check out the `source code on GitHub <https://github.com/eider-rpc/eider-js>`__.
 
 .. _getting_started:
 
