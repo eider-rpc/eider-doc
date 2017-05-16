@@ -111,8 +111,8 @@ Objects
 
 A ``LocalObject`` is a server-side object that lives within a ``LocalSession`` and may be remotely
 accessed.  A ``RemoteObject`` is a client-side reference to a ``LocalObject`` provided by another
-peer.  Objects are reference-counted, may be explicitly released, and will become unreachable after
-the session in which they were created is closed.
+peer.  Objects are reference-counted, may be explicitly released, and are implicitly cleaned up
+when the session in which they were created is closed.
 
 Object class definitions follow the normal syntax, semantics, and conventions of their host
 languages, with one important exception: any property that does not begin with an underscore
@@ -123,8 +123,8 @@ Every object inherits a few basic methods:
 
 .. py:method:: LocalObject.addref()
 
-    Increment the object's reference count.  This can be useful if the same object is returned
-    multiple times over the course of a session.
+    Increment the object's reference count.  It should almost never be necessary to explicitly call
+    this method.
 
 .. py:method:: LocalObject.release()
 

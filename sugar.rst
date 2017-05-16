@@ -119,9 +119,6 @@ own iterator:
             self._f1 = 1
         
         def iter(self):
-            # Note that we must addref() since a new RemoteObject will be
-            # created for the iterator.
-            self.addref()
             return self
         
         def next(self):
