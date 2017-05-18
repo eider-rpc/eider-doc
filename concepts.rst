@@ -112,7 +112,7 @@ Objects
 A ``LocalObject`` is a server-side object that lives within a ``LocalSession`` and may be remotely
 accessed.  A ``RemoteObject`` is a client-side reference to a ``LocalObject`` provided by another
 peer.  Objects are reference-counted, may be explicitly released, and are implicitly cleaned up
-when the session in which they were created is closed.
+when the session in which they were created is closed.  
 
 Object class definitions follow the normal syntax, semantics, and conventions of their host
 languages, with one important exception: any property that does not begin with an underscore
@@ -164,6 +164,28 @@ called, have this local method:
 
 Both ``LocalObject`` and ``RemoteObject`` also support the context manager protocol, so they can be
 used in the ``with`` statement in Python and ``Eider.using()`` in JavaScript.
+
+In environments where `finalizers <https://en.wikipedia.org/wiki/Finalizer>`_ are available (e.g.
+Python, Node.js with the `weak <https://www.npmjs.com/package/weak>`_ package),
+``RemoteObject._close()`` will be automatically called when the ``RemoteObject`` is
+garbage-collected.  In other environments (e.g. standard JavaScript in the browser), if a
+``RemoteObject`` becomes unreachable without ``_close()`` having been called, a remote resource
+leak may occur until the corresponding remote session is closed.
+
+.. _native:
+
+Native Objects
+--------------
+
+Every connection includes a built-in ``NativeSession`` object (which uses the reserved ``lsid`` of
+``-1``).  This session is useful for marshalling "native" functions and objects (objects which do
+not inherit from ``LocalObject``).  The ability to pass native objects to Eider APIs can simplify
+client code, because callback functions do not have to be housed within ``LocalObject``
+definitions.  However, native objects do not benefit from the reference-counting and automatic
+session cleanup that ``LocalObject`` provides.  Every time a native object is marshalled, a new
+reference to it is created that will survive for the life of the connection unless the remote peer
+closes the corresponding ``RemoteObject``.  This could result in local memory leaks if callbacks
+are passed many times over the same connection.
 
 .. _call:
 

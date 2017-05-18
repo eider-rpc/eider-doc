@@ -361,17 +361,33 @@ Session Management
 
 When a connection is first established, there are no remote sessions yet, and therefore no remote
 objects with methods to call.  With no methods to call, how do you create a remote session?  The
-answer is that every Eider connection provides a special, single-purpose session (with ``lsid`` of
-``null``) whose root object provides a single special method:
+answer is that every Eider connection provides a special session (with ``lsid`` of ``null``) whose
+root object provides a special method:
 
 .. py:method:: LocalSessionManager.open(lsid, lformat=None)
 
     Create a new session which may be subsequently identified with ``lsid``.  Method call responses
     and callbacks originating from this session will be encoded using the requested ``lformat``.
 
-It should not be necessary to call this method directly; ``Connection.create_session()`` will handle
-this for you.
+It should not be necessary to call this method directly; ``Connection.create_session()`` will
+handle this for you.
 
 A remote session is closed when its root object is released.  Again, this should not be done
 directly, but rather by calling ``RemoteSession.close()`` or using the session in a ``with``
 statement (Python) or ``Eider.using()`` (JavaScript).
+
+.. _native_free:
+
+Native Objects
+--------------
+
+The ``null`` session also provides a method that becomes important when passing native objects and
+functions:
+
+.. py:method:: LocalSessionManager.free(lsid, loid)
+
+    Release the specified object.  For instances of ``LocalObject``, this is has the same effect as
+    calling ``release()``.  For native objects, which do not participate in Eider's
+    reference-counting protocol, this deletes the connection's internal reference to the object.
+    This method is called internally by ``RemoteObject._close()`` to mask the difference between
+    ``LocalObject`` instances and native objects.

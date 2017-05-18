@@ -39,7 +39,8 @@ supports `ES6 <http://kangax.github.io/compat-table/es6/>`_.
 
 No external libraries are strictly required.  Elective support is included for WebSocket creation
 using `ws <https://www.npmjs.com/package/ws>`_ and MessagePack using `msgpack-lite
-<https://www.npmjs.com/package/msgpack-lite>`_, if available.
+<https://www.npmjs.com/package/msgpack-lite>`_, if available.  Implicit remote garbage collection
+is supported if the `weak <https://www.npmjs.com/package/weak>`_ package is available.
 
 .. sourcecode:: bat
   
