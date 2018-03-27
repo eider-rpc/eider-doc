@@ -53,13 +53,15 @@ A request (method invocation) takes the following form:
 
 .. describe:: id
 
-    This is an integer uniquely identifying the request.  It can also be
+    This is an integer uniquely identifying the request.  It may also be
     ``null`` or not present, in which case no response will be returned.
 
 .. describe:: this
 
     A reference to the object whose method is to be invoked (see :ref:`object
-    marshalling <marshal>`).
+    marshalling <marshal>`).  For calls to the ``LocalSessionManager`` (e.g.
+    :ref:`open() <session>` and :ref:`free() <native_free>`), this may be
+    ``null`` or not present.
 
 .. describe:: method
 
@@ -67,7 +69,8 @@ A request (method invocation) takes the following form:
 
 .. describe:: params
 
-    An array of arguments to pass to the method.
+    An array of arguments to pass to the method.  May be not present if there
+    are no arguments.
 
 
 Response
