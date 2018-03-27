@@ -1,4 +1,5 @@
-@rem force complete rebuild; sphinx's standard make.bat seems to be buggy about invalidating its cache
+@rem force complete rebuild; sphinx's standard make.bat seems to be buggy about
+@rem invalidating its cache
 rmdir /s /q _build
 
 if "%SPHINXBUILD%" == "" (

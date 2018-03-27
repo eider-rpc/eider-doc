@@ -85,7 +85,8 @@ html_theme = 'alabaster'
 # documentation.
 #
 html_theme_options = {
-    'description': "An object-oriented, asynchronous, late-binding, web-first, polyglot RPC protocol.",
+    'description': ('An object-oriented, asynchronous, late-binding, '
+                    'web-first, polyglot RPC protocol.'),
     'logo': 'king_eider.jpg',
     'logo_name': True,
     'github_user': 'eider-rpc',
