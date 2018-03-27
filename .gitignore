@@ -1,2 +1,4 @@
+venv/
+
 # Sphinx documentation
 _build/
