@@ -60,6 +60,15 @@ You can also check out the `source code on GitHub
 <https://github.com/eider-rpc/eider-js>`__.
 
 
+C++
+^^^
+
+The `eider-pybind11 <https://github.com/eider-rpc/eider-pybind11>`_ project
+provides a simple header file that can enable classes implemented in C++ to be
+served over Eider connections using `pybind11
+<http://pybind11.readthedocs.io/en/latest>`_.
+
+
 .. _getting_started:
 
 Getting Started
@@ -79,6 +88,13 @@ And here is an equivalent server in JavaScript (:download:`simple_server.js
     :language: javascript
     :linenos:
 
+Here is how the core of the Python server could be written in C++
+(:download:`simple_server.cpp <simple_server.cpp>`):
+
+.. literalinclude:: simple_server.cpp
+    :language: c++
+    :linenos:
+
 Here is a client in Python (:download:`simple_client.py <simple_client.py>`):
 
 .. literalinclude:: simple_client.py
@@ -93,7 +109,7 @@ And here is an equivalent client in JavaScript (`simple_client.html
     :linenos:
     :lines: 7-18
 
-And finally, here is a Python 3.5+ version using non-blocking APIs
+And finally, here is a Python 3.5+ client using non-blocking APIs
 (:download:`simple_client_async.py <simple_client_async.py>`):
 
 .. literalinclude:: simple_client_async.py
