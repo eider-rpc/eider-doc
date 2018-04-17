@@ -24,7 +24,8 @@ Installation
 Python
 ^^^^^^
 
-Requires `Python <https://www.python.org/>`_ 3.4+ and either `aiohttp
+Works in `CPython <https://www.python.org/>`_ 3.4+ and `PyPy3
+<http://pypy.org/>`_.  Requires either `aiohttp
 <http://aiohttp.readthedocs.io/>`_ or `websockets
 <http://websockets.readthedocs.io/>`__.  Includes elective support for
 MessagePack using `msgpack-python
