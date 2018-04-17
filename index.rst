@@ -24,14 +24,20 @@ Installation
 Python
 ^^^^^^
 
-Requires `Python <https://www.python.org/>`_ 3.4+ and `aiohttp
-<http://aiohttp.readthedocs.io/en/stable/>`_.  Includes elective support for
+Requires `Python <https://www.python.org/>`_ 3.4+ and either `aiohttp
+<http://aiohttp.readthedocs.io/>`_ or `websockets
+<http://websockets.readthedocs.io/>`__.  Includes elective support for
 MessagePack using `msgpack-python
 <https://github.com/msgpack/msgpack-python>`_, if available.
 
-.. sourcecode:: bat
+.. sourcecode:: sh
 
     pip install eider
+    pip install msgpack  # optional
+
+    # either:
+    pip install aiohttp  # recommended
+    pip install websockets  # slower
 
 You can also check out the `source code on GitHub
 <https://github.com/eider-rpc/eider-py>`__.
@@ -43,16 +49,21 @@ JavaScript
 Works in `Node.js <https://nodejs.org/>`_ 6+, modern browsers, and any other
 environment that supports `ES6 <http://kangax.github.io/compat-table/es6/>`_.
 
-No external libraries are strictly required.  Elective support is included for
-WebSocket creation using `ws <https://www.npmjs.com/package/ws>`_ and
-MessagePack using `msgpack-lite <https://www.npmjs.com/package/msgpack-lite>`_,
-if available.  Implicit remote garbage collection
-is supported if the `weak <https://www.npmjs.com/package/weak>`_ package is
-available.
+No external libraries are strictly required.  If installed, the `uws
+<https://www.npmjs.com/package/uws>`_ or `ws
+<https://www.npmjs.com/package/ws>`_ libraries may be used for WebSocket
+creation in Node.js.  Optional dependencies are `msgpack-lite
+<https://www.npmjs.com/package/msgpack-lite>`_ for MessagePack encoding and
+`weak <https://www.npmjs.com/package/weak>`_ for implicit remote garbage
+collection.
 
-.. sourcecode:: bat
+.. sourcecode:: sh
 
     npm install eider-rpc
+
+    # either:
+    npm install uws  # recommended
+    npm install ws  # slower
 
 For the browser: `eider-rpc.min.js <eider-rpc.min.js>`_.
 
@@ -66,7 +77,7 @@ C++
 The `eider-pybind11 <https://github.com/eider-rpc/eider-pybind11>`_ project
 provides a simple header file that can enable classes implemented in C++ to be
 served over Eider connections using `pybind11
-<http://pybind11.readthedocs.io/en/latest>`_.
+<http://pybind11.readthedocs.io/>`_.
 
 
 .. _getting_started:
