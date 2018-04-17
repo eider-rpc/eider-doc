@@ -129,9 +129,10 @@ be explicitly released, and are implicitly cleaned up when the session in which
 they were created is closed.
 
 Object class definitions follow the normal syntax, semantics, and conventions
-of their host languages, with one important exception: any property that does
-not begin with an underscore (``_``) will be remotely callable as a method.
-Data members and private methods should always be prefixed with ``_``.
+of their host languages, with one important proviso: any property or method
+that begins with an underscore (``_``) will be not be remotely accessible.
+This rule allows objects to protect private internal data from remote clients.
+:ref:`Accessors <sugar_data>` may be defined to give access to internal data.
 
 Every object inherits a few basic methods:
 

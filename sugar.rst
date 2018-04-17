@@ -10,36 +10,64 @@ support for some API conventions.  While the use of these conventions is highly
 recommended, they are not part of the core Eider protocol.
 
 
+.. _sugar_data:
+
 Data Members
 ------------
 
 Simple data properties on objects may be simulated with getter and setter
 methods.  A property named ``foo`` should have a getter named ``foo()`` and a
-setter named ``set_foo()``.  For example:
+setter named ``set_foo()``.  If these methods are not explicitly defined, Eider
+will attempt to access the corresponding property directly when the methods are
+called.
+
+For example:
 
 .. sourcecode:: python3
 
     class Circle(eider.LocalObject):
 
-        def __init__(self, lsession, radius):
+        def __init__(self, lsession, center, radius):
             super().__init__(lsession)
-            self._radius = radius  # actual data members must begin with _
 
-        def radius(self):
-            return self._radius
+            # private data members begin with _
+            self._center = center
 
-        def set_radius(self, radius):
-            self._radius = radius
+            # public data member (with implicit getter/setter)
+            self.radius = radius
+
+        # explicit getter
+        def center(self):
+            return self._center
+
+        # explicit setter
+        def set_center(self, center):
+            self._center = center
+
+        # explicit getter for a computed property
+        def diameter(self):
+            return self.radius * 2
+
+        # explicit setter for a computed property
+        def set_diameter(self, diameter):
+            self.radius = diameter / 2
 
 The Python blocking API includes syntactic sugar to take advantage of this
 convention:
 
 .. sourcecode:: python3
 
-    >>> circle = root.new_Circle(3)
+    >>> circle = root.new_Circle((1, 2), 3)
+    >>> circle.center()
+    [1, 2]
     >>> circle.radius = 4  # equivalent to circle.set_radius(4)
-    >>> circle.radius()
+    >>> circle.radius()  # note the required parens
     4
+    >>> circle.diameter()
+    8
+    >>> circle.color = 'blue'  # dynamically add an attribute
+    >>> circle.color()
+    'blue'
 
 
 Length
