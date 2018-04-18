@@ -28,7 +28,7 @@ copyright = '%d, ON Semiconductor' % datetime.date.today().year
 author = 'Bart Robinson'
 
 # The short X.Y version
-version = '0.11.0'
+version = '0.12.0'
 # The full version, including alpha/beta/rc tags
 release = version
 
