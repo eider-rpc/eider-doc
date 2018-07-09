@@ -415,8 +415,8 @@ It should not be necessary to call this method directly;
 
 A remote session is closed when its root object is released.  Again, this
 should not be done directly, but rather by calling ``RemoteSession.close()`` or
-using the session in a ``with`` statement (Python) or ``Eider.using()``
-(JavaScript).
+using the session in a ``with`` statement (Python 3.4), ``async with``
+statement (Python 3.5+), or ``Eider.using()`` (JavaScript).
 
 
 .. _native_free:

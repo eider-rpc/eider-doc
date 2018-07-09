@@ -181,7 +181,8 @@ referenced object to be called, have this local method:
 
 Both ``LocalObject`` and ``RemoteObject`` also support the context manager
 protocol, so they can be used in the ``with`` statement in Python and
-``Eider.using()`` in JavaScript.
+``Eider.using()`` in JavaScript.  (In Python 3.5+, ``async with`` should be
+used for improved behavior.)
 
 In environments where `finalizers <https://en.wikipedia.org/wiki/Finalizer>`_
 are available (e.g. Python, Node.js with the `weak
