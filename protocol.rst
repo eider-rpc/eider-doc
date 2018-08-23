@@ -186,10 +186,11 @@ remote call will have its exception immediately set to
 Serialization Formats
 ---------------------
 
-By default, Eider expects all messages to be encoded in JSON format.  The
-reference implementations also allow an alternative format to be specified when
-creating a ``Connection`` object; however, the particular format to be used
-must be either agreed upon in advance or transmitted through some side-channel.
+By default, Eider expects all text messages to be encoded in JSON and all
+binary messages in MessagePack.  The reference implementations also allow
+alternative format(s) to be specified when creating a ``Connection`` object;
+however, the particular format(s) to be used must be either agreed upon in
+advance or transmitted through some side-channel.
 
 Eider also includes a mechanism for specifying an alternative format on a
 per-message basis.  To do this, the message must be split into two parts: a
