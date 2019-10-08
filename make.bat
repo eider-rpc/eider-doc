@@ -3,7 +3,7 @@
 rmdir /s /q _build
 
 if "%SPHINXBUILD%" == "" (
-	set SPHINXBUILD=C:\Python34\Scripts\sphinx-build.exe
+	set SPHINXBUILD=venv\Scripts\sphinx-build.exe
 )
 
 @rem standard make.bat follows
