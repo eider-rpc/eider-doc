@@ -8,13 +8,14 @@
 <script type="text/javascript">
 const how = 'like a duck';
 const obj = {looks: how, swims: how, quacks: how};
-Eider.using(Eider.connect('ws://localhost:12345'), conn =>
-    Eider.using(conn.createSession(), duckTester =>
-        duckTester.is_it_a_duck(obj).then(isDuck => {
+(async () =>
+    await Eider.using(Eider.connect('ws://localhost:12345'), async conn =>
+        await Eider.using(conn.createSession(), async duckTester => {
+            const isDuck = await duckTester.is_it_a_duck(obj);
             alert("It's probably " + (isDuck ? '' : 'NOT ') + 'a duck.');
         })
     )
-);
+)();
 </script>
 </body>
 </html>

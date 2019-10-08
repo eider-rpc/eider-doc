@@ -89,34 +89,41 @@ served over Eider connections using `pybind11
 Getting Started
 ---------------
 
-Here is a simple server in Python (:download:`simple_server.py
-<simple_server.py>`):
+Python
+^^^^^^
+
+Here is a simple server (:download:`simple_server.py <simple_server.py>`):
 
 .. literalinclude:: simple_server.py
     :language: python3
     :linenos:
 
-And here is an equivalent server in JavaScript (:download:`simple_server.js
+And here is a corresponding client (:download:`simple_client.py
+<simple_client.py>`):
+
+.. literalinclude:: simple_client.py
+    :language: python3
+    :linenos:
+
+And here is an equivalent client using non-blocking APIs:
+(:download:`simple_client_async.py <simple_client_async.py>`):
+
+.. literalinclude:: simple_client_async.py
+    :language: python3
+    :linenos:
+
+
+JavaScript
+^^^^^^^^^^
+
+Here is an equivalent server in JavaScript (:download:`simple_server.js
 <simple_server.js>`):
 
 .. literalinclude:: simple_server.js
     :language: javascript
     :linenos:
 
-Here is how the core of the Python server could be written in C++
-(:download:`simple_server.cpp <simple_server.cpp>`):
-
-.. literalinclude:: simple_server.cpp
-    :language: c++
-    :linenos:
-
-Here is a client in Python (:download:`simple_client.py <simple_client.py>`):
-
-.. literalinclude:: simple_client.py
-    :language: python3
-    :linenos:
-
-And here is an equivalent client in JavaScript (`simple_client.html
+And here is an equivalent client (`simple_client.html
 <simple_client.html>`_):
 
 .. literalinclude:: simple_client.html
@@ -124,11 +131,23 @@ And here is an equivalent client in JavaScript (`simple_client.html
     :linenos:
     :lines: 7-18
 
-And finally, here is a Python 3.5+ client using non-blocking APIs
-(:download:`simple_client_async.py <simple_client_async.py>`):
+And here is an equivalent client using ``async``/``await`` syntax
+(`simple_client_async.html <simple_client_async.html>`_):
 
-.. literalinclude:: simple_client_async.py
-    :language: python3
+.. literalinclude:: simple_client_async.html
+    :language: html
+    :linenos:
+    :lines: 7-19
+
+
+C++
+^^^
+
+Here is how the core of the Python server could be written in C++
+(:download:`simple_server.cpp <simple_server.cpp>`):
+
+.. literalinclude:: simple_server.cpp
+    :language: c++
     :linenos:
 
 
