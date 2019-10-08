@@ -34,11 +34,13 @@ MessagePack using `msgpack-python
 .. sourcecode:: sh
 
     pip install eider
-    pip install msgpack  # optional
 
     # either:
     pip install aiohttp  # recommended
     pip install websockets  # slower
+
+    # optional:
+    pip install msgpack
 
 You can also check out the `source code on GitHub
 <https://github.com/eider-rpc/eider-py>`__.
@@ -50,21 +52,22 @@ JavaScript
 Works in `Node.js <https://nodejs.org/>`_ 6+, modern browsers, and any other
 environment that supports `ES6 <http://kangax.github.io/compat-table/es6/>`_.
 
-No external libraries are strictly required.  If installed, the `uws
-<https://www.npmjs.com/package/uws>`_ or `ws
-<https://www.npmjs.com/package/ws>`_ libraries may be used for WebSocket
-creation in Node.js.  Optional dependencies are `msgpack-lite
-<https://www.npmjs.com/package/msgpack-lite>`_ for MessagePack encoding and
-`weak <https://www.npmjs.com/package/weak>`_ for implicit remote garbage
-collection.
+For clients, no external libraries are strictly required.  Node.js servers need
+the `ws <https://www.npmjs.com/package/ws>`_ package.  Other optional
+dependencies are `msgpack-lite <https://www.npmjs.com/package/msgpack-lite>`_
+for MessagePack encoding and `weak <https://www.npmjs.com/package/weak>`_ for
+implicit remote garbage collection.
 
 .. sourcecode:: sh
 
     npm install eider-rpc
 
-    # either:
-    npm install uws  # recommended
-    npm install ws  # slower
+    # for servers:
+    npm install ws
+
+    # optional:
+    npm install msgpack-lite
+    npm install weak
 
 For the browser: `eider-rpc.min.js <eider-rpc.min.js>`_.
 
