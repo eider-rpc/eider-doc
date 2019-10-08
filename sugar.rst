@@ -180,14 +180,16 @@ This iterable can be used with the Python blocking API:
     3
     5
 
-In Python 3.5+, it can also be used with the asynchronous API:
+An asynchronous version is also possible:
 
 .. sourcecode:: python3
 
+    >>> async def print_number(f):
+    ...     print(f)
+    ...
     >>> async def print_fibs(n):
-    ...     fib = await root.new_Fibonacci(n)
-    ...     async for f in fib:
-    ...         print(f)
+    ...     async with (await vanth.new_Fibonacci(5)) as fib:
+    ...         await eider.async_for(fib, print_number)
     ...
     >>> asyncio.get_event_loop().run_until_complete(print_fibs(5))
     1
@@ -196,15 +198,29 @@ In Python 3.5+, it can also be used with the asynchronous API:
     3
     5
 
-And in JavaScript:
+.. warning:: The `async for
+    <https://docs.python.org/3/reference/compound_stmts.html#async-for>`_
+    statement in Python 3.5+ may also be used with Eider iterables, but the
+    ``eider.async_for()`` function is recommended instead because it ensures
+    deterministic cleanup of the remote iterator object.  See `PEP 533
+    <https://www.python.org/dev/peps/pep-0533/>`_ for more information.
+
+JavaScript usage:
 
 .. sourcecode:: javascript
 
-    Eider.using(root.new_Fibonacci(5), fib =>
-        Eider.forEachAsync(fib, f =>
-            console.log(f)
-        )
+    await Eider.using(root.new_Fibonacci(5), async fib =>
+        await Eider.forAwait(fib, async f => {
+            console.log(f);
+        })
     );
+
+.. warning:: The `for await...of
+    <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of>`_
+    statement may also be used with Eider iterables, but it suffers from the
+    same shortcomings as the ``async for`` statement in Python (see above
+    note).  The provided ``Eider.forAwait()`` function is the recommended
+    alternative.
 
 
 Sequence Protocol
@@ -263,8 +279,12 @@ JavaScript:
 
 .. sourcecode:: javascript
 
-    Eider.using(root.new_Range(37, 49, 3), r =>
-        Eider.forEachAsync(r, n =>
-            console.log(n)
-        )
-    );
+    await Eider.using(root.new_Range(37, 49, 3), async r => {
+        for await (n of r) {
+            console.log(n);
+        }
+    });
+
+.. note:: When iterating using the sequence protocol instead of the iterator
+    protocol, it is safe to use the ``async for`` and ``for await...of``
+    statements, because no implicit remote iterator object is created.
