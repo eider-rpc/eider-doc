@@ -6,7 +6,8 @@ matrix:
           script:
               - doc8
               - flake8 examples/
-    include:
         - language: node_js
+          node_js:
+              - 10
           script:
               - node_modules/.bin/eslint --ext .html,.js examples/
