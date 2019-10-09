@@ -107,8 +107,8 @@ html_static_path = ['_static']
 #
 html_extra_path = [
     'eider-rpc.min.js',
-    'simple_client.html',
-    'simple_client_async.html'
+    'examples/simple_client.html',
+    'examples/simple_client_async.html'
 ]
 
 # Custom sidebar templates, must be a dictionary that maps document names

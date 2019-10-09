@@ -1,0 +1,6 @@
+[flake8]
+ignore =
+    E401  # multiple imports on one line
+    E302  # expected 2 blank lines
+    E305  # expected 2 blank lines after class or function definition
+    W504  # line break after binary operator

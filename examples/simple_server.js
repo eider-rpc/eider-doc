@@ -1,4 +1,4 @@
-let Eider = require('eider-rpc');
+const Eider = require('eider-rpc');
 
 class DuckTester extends Eider.LocalRoot {
     is_it_a_duck(obj) {

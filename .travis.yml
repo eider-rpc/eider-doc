@@ -1,5 +1,12 @@
-language: python
-install:
-    - pip install doc8 Pygments
-script:
-    - doc8
+matrix:
+    include:
+        - language: python
+          install:
+              - pip install doc8 flake8 Pygments
+          script:
+              - doc8
+              - flake8 examples/
+    include:
+        - language: node_js
+          script:
+              - node_modules/.bin/eslint --ext .html,.js examples/

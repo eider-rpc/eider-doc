@@ -1,0 +1,14 @@
+{
+  "name": "eider-doc",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eider-rpc/eider-doc.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-html": "^6.0.0"
+  }
+}
