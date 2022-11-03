@@ -28,7 +28,7 @@ copyright = '%d, ON Semiconductor' % datetime.date.today().year
 author = 'Bart Robinson'
 
 # The short X.Y version
-version = '1.0.0'
+version = '2.0.0'
 # The full version, including alpha/beta/rc tags
 release = version
 
@@ -92,8 +92,7 @@ html_theme_options = {
     'github_user': 'eider-rpc',
     'github_repo': 'eider-py',
     'github_button': False,
-    'github_banner': True,
-    'travis_button': True
+    'github_banner': True
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,

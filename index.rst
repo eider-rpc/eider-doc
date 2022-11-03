@@ -24,9 +24,10 @@ Installation
 Python
 ^^^^^^
 
-Works in `CPython <https://www.python.org/>`_ 3.4+ and `PyPy3
-<http://pypy.org/>`_.  Requires either `aiohttp
-<http://aiohttp.readthedocs.io/>`_ or `websockets
+The `eider <https://pypi.org/project/eider/>`_ package currently targets
+`Python <https://www.python.org/>`_ 3.7+ (for Python 3.4-3.6, `eider 1.x
+<https://pypi.org/project/eider/#history>`_ is largely compatible).  Requires
+either `aiohttp <http://aiohttp.readthedocs.io/>`_ or `websockets
 <http://websockets.readthedocs.io/>`__.  Includes elective support for
 MessagePack using `msgpack-python
 <https://github.com/msgpack/msgpack-python>`_, if available.
@@ -49,7 +50,8 @@ You can also check out the `source code on GitHub
 JavaScript
 ^^^^^^^^^^
 
-Works in `Node.js <https://nodejs.org/>`_ 6+, modern browsers, and any other
+The `eider-rpc <https://npm.io/package/eider-rpc>`_ package targets `Node.js
+<https://nodejs.org/>`_ 6+, modern browsers, and any other
 environment that supports `ES6 <http://kangax.github.io/compat-table/es6/>`_.
 
 For clients, no external libraries are strictly required.  Node.js servers need
@@ -172,8 +174,8 @@ Eider began as an internal software library at `ON Semiconductor
 <http://onsemi.com>`_ and was open-sourced under the `Apache License 2.0
 <http://www.apache.org/licenses/LICENSE-2.0>`_ in April 2017.
 
-`Bart Robinson <http://bartrobinson.com>`_ is the original author and current
-maintainer.
+`Bart Robinson <https://github.com/wemoloh>`_ is the original author and
+current maintainer.
 
 King Eider photo by `Ron Knight <https://flic.kr/p/mPLgy8>`_
 (`CC BY 2.0 <https://creativecommons.org/licenses/by/2.0/>`_).
